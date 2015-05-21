@@ -74,15 +74,15 @@
   \frametitle{Features of Subversion}
 
   \begin{itemize}
-  \item<1-> It's a version control system
-  \item<2-> Uses a centralized model:
+  \item It's a version control system
+  \item Uses a centralized model:
   	\begin{itemize}
-  	\item<2-> Server-client approach
-  	\item<3-> Version merging
-	\item<4-> With wireless connections everywhere, it's rarely a limitation
+  	\item Server-client approach
+  	\item Version merging
+	\item With wireless connections everywhere, it's rarely a limitation
   	\end{itemize}
-  \item<5-> Easy to learn (but slower than Git)
-  \item<6-> It's free
+  \item Easy to learn (but slower than Git)
+  \item It's free
   \end{itemize}
 }
 
@@ -114,7 +114,7 @@
   \frametitle{Subversion on Cornell servers}
   
   \begin{itemize}
-  \item<1-> CISER on RSCH106
+  \item<1-> CISER on RSCH101 and RSCH106 (tested)
   \item<2-> ECCO
   \item<3-> Quick reference guide at \url{http://www2.vrdc.cornell.edu/news/documentation/subversion/}
   \end{itemize}
@@ -215,6 +215,49 @@
 
 }
 
+\subsection{Branches}
+
+\frame
+{
+	\frametitle{Branches}
+	A branch is a line of development that exists independently of another line, yet still shares a common history if you look far enough back in time.\\
+	\medskip
+	It begins life as a copy of something, and moves on from there, generating its own history.
+	
+		\begin{figure}[H]
+	\centering
+	\includegraphics[height=3cm]{branches1.png}
+	\end{figure}
+
+
+}
+
+
+\frame
+{
+	\frametitle{Creating a branch}
+	Make a copy of (a part of) your project tree in the repository using the \alert{svn copy} command. \\
+	\medskip
+	The copy may live wherever you wish. Usually, in a folder named \textbf{branches}.\\
+	\medskip
+	\textbf{Note:} you can do a \alert{remote copy} --- a copy that immediately results in a newly committed repository revision --- no working copy is required! 	Just copy one URL to another.\\
+	\medskip
+	\alert{Cheap copies:} when you copy a directory, you don't need to worry about duplicating the size, since SVN doesn't actually duplicate any data. Instead, it creates a new directory entry that points to an existing tree.
+
+
+
+}
+
+\frame
+{
+	\begin{figure}[H]
+	\centering
+	\includegraphics[height=8cm]{branches2.png}
+	\end{figure}
+
+
+}
+
 \section{Workflow}
 
 
@@ -262,7 +305,7 @@
   \begin{enumerate}
   \item<1-> Update your working copy or check out a new one
   	\begin{itemize}
-  	\item<1-> Commands: \textit{co} (check out), \textit{update}
+  	\item<1-> Commands: \textit{co} (\textit{check out}), \textit{update}
   	\end{itemize}
   \item<2-> Make changes
   	\begin{itemize}
@@ -271,7 +314,7 @@
 	\end{itemize}
   \item<3-> Review the changes
   	\begin{itemize}
-	\item<3-> Commands: \textit{status}, \textit{diff}
+	\item<3-> Commands: \textit{status}, \textit{diff}, \textit{log}
 	\end{itemize}
   \item<4-> Fix any mistake
   	\begin{itemize}
@@ -291,7 +334,7 @@
 
 \subsection{Common tasks}
 
-\frame
+\frame<beamer:0>
 {
   \frametitle{Common tasks}
   
