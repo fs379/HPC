@@ -1,6 +1,57 @@
 \documentclass{beamer}
 
-\usepackage{beamerthemesplit}
+% Set up the template
+\setbeamertemplate{frametitle}
+  {\begin{centering}\smallskip
+   \insertframetitle\par
+   \smallskip\end{centering}}
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{footline}[text line]{%
+    \hfill\strut{%
+        \scriptsize\sf\color{black!60}%
+        \quad\insertframenumber
+    }%
+    \hfill
+}
+
+% Set up table of contents
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% Upper content bar
+\useoutertheme[subsection=false]{smoothbars}
+%\insertsectionnavigationhorizontal{\paperwidth}{\hskip0pt plus1fill}{\hskip0pt plus1fill}
+
+% Define some colors:
+\definecolor{DarkFern}{HTML}{407428}
+\definecolor{DarkCharcoal}{HTML}{4D4944}
+\colorlet{Fern}{DarkFern!85!white}
+\colorlet{Charcoal}{DarkCharcoal!90!white}
+\colorlet{LightCharcoal}{Charcoal!50!white}
+\colorlet{AlertColor}{orange!80!black}
+\colorlet{DarkRed}{red!70!black}
+\colorlet{DarkBlue}{blue!70!black}
+\colorlet{DarkGreen}{green!70!black}
+
+
+% Use the colors:
+\setbeamercolor{title}{fg=DarkRed}
+\setbeamercolor{frametitle}{fg=Fern}
+\setbeamercolor{normal text}{fg=Charcoal}
+\setbeamercolor{block title}{fg=black,bg=Fern!25!white}
+\setbeamercolor{block body}{fg=black,bg=Fern!25!white}
+\setbeamercolor{alerted text}{fg=AlertColor}
+\setbeamercolor{itemize item}{fg=Charcoal}
+
+
+
 \usepackage{hyperref}
 \usepackage{graphics}
 
@@ -15,7 +66,6 @@
 \frame{\titlepage}
 
 \section{Introduction}
-\frame{\tableofcontents[currentsection]}
 
 \subsection{What is Subversion?}
 
@@ -73,7 +123,7 @@
 
 \subsection{Create a repository}
 
-\frame
+\frame<beamer:0>
 {
   \frametitle{Where to create a repository?}
   
@@ -92,7 +142,6 @@
 
 
 \section{Concepts}
-\frame{\tableofcontents[currentsection]}
 
 \subsection{Centralized version control}
 
@@ -167,7 +216,7 @@
 }
 
 \section{Workflow}
-\frame{\tableofcontents[currentsection]}
+
 
 \subsection{The terminal}
 
@@ -186,6 +235,22 @@
   \includegraphics[height=0.8cm]{svn_example.png}
   \end{itemize}
 	
+}
+
+\subsection{Help}
+
+\frame
+{
+  \frametitle{Your best friend}
+  
+  \begin{itemize}
+  \item<1-> The most important command is \dots
+  		  \uncover<2->{\textit{help}}
+  \item<3-> Calling \textit{help} alone will print a summary of the commands and their usage
+  \item<4-> Calling \textit{help} followed by the name of a command will print a short description of the command and its options
+  \item<5-> Options are often useful (and sometimes necessary), but it's hard to remember them all: use \textit{help}!
+  \end{itemize}
+
 }
 
 \subsection{Basic workflow}
@@ -241,20 +306,5 @@
   
 }  
 
-\subsection{Help}
-
-\frame
-{
-  \frametitle{Your best friend}
-  
-  \begin{itemize}
-  \item<1-> The most important command is \dots
-  		  \uncover<2->{\textit{help}}
-  \item<3-> Calling \textit{help} alone will print a summary of the commands and their usage
-  \item<4-> Calling \textit{help} followed by the name of a command will print a short description of the command and its options
-  \item<5-> Options are often useful (and sometimes necessary), but it's hard to remember them all: use \textit{help}!
-  \end{itemize}
-
-}
 
 \end{document}
